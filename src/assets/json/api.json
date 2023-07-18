@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "category": "current",
+    "name": "US Cotton 2 Futures - Dec 23 (CTZ3)",
+    "price": "80.64 USDCent",
+    "percent": "",
+    "series": ""
+  },
+  {
+    "id": 2,
+    "category": "current",
+    "name": "ZCE Cotton No.1 - (CCFc1)",
+    "price": "104.49 USDCent",
+    "percent": "",
+    "series": ""
+  },
+  {
+    "id": 3,
+    "category": "current",
+    "name": "Cotton 29mm Futures - Aug 23 (MCOTc1)",
+    "price": "182.69 USDCent",
+    "percent": "",
+    "series": ""
+  },
+  {
+    "id": 4,
+    "category": "index",
+    "name": "Cotlook A Index",
+    "price": "182.69 USDCent",
+    "percent": "",
+    "series": ""
+  },
+  {
+    "id": 5,
+    "category": "index",
+    "name": "CHINA Cotton A Index",
+    "price": "104.49 USDCent",
+    "percent": "",
+    "series": ""
+  },
+  {
+    "id": 6,
+    "category": "daily",
+    "name": "CEPEA/ESALQ Cotton Price Index",
+    "price": "151.03 USDCent",
+    "percent": "",
+    "series": ""
+  },
+  {
+    "id": 7,
+    "category": "daily",
+    "name": "Karachi Cotton Rates",
+    "price": "91.35 USDCent",
+    "percent": "",
+    "series": ""
+  }
+]

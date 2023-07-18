@@ -1,0 +1,91 @@
+a {
+  text-decoration: none;
+  color: #ced4da;
+}
+#cards {
+  margin: auto;
+  margin-top: 5em;
+}
+
+#cards .card {
+  width: 100% !important;
+  height: 150px;
+  margin: auto;
+  background-color: #212529;
+  border-top: 7px solid #7f7f7f;
+  border-radius: 15px;
+  h4 {
+    padding: 0.2em;
+    margin: auto;
+    color: #ced4da;
+  }
+  transition: 0.3s;
+}
+#cards .card:hover {
+  cursor: pointer;
+  background-color: #151618;
+}
+#card1 {
+  height: 170px !important;
+}
+#card3 {
+  height: 170px !important;
+}
+
+.table thead {
+  font-size: 20px;
+  color: red !important;
+}
+
+.table tbody {
+  color: #ced4da !important;
+  font-weight: lighter;
+  font-size: 16px;
+  .percent {
+    font-weight: bold;
+  }
+}
+.active {
+  background-color: #151618 !important;
+}
+.exchange {
+  margin-left: 30%;
+}
+
+//MEDIA SCREEN
+
+@media (max-width: 980px) {
+  #cards .card {
+    width: 160px;
+    height: 130px;
+    h4 {
+      font-size: 0.9em !important;
+    }
+  }
+  #card1 {
+    height: 145px !important;
+  }
+  #card3 {
+    height: 145px !important;
+  }
+  table thead {
+    font-size: 18px !important;
+  }
+
+  table tbody {
+    font-weight: lighter;
+    font-size: 15px !important;
+  }
+  .exchange {
+    margin-left: 0;
+  }
+}
+@media (max-width: 512px) {
+  #cards .card {
+    width: 130px;
+    height: 120px;
+    h4 {
+      font-size: 0.8em !important;
+    }
+  }
+}
