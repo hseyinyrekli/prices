@@ -6,7 +6,14 @@ a {
   margin: auto;
   margin-top: 5em;
 }
-
+.line {
+  padding: 0.2em;
+  background-color: #dbdbdb;
+  margin-bottom: 1em;
+}
+#buttons button:hover {
+  font-weight: bold;
+}
 #cards .card {
   width: 100% !important;
   height: 150px;
@@ -47,6 +54,9 @@ a {
 }
 .active {
   background-color: #151618 !important;
+}
+.active2 {
+  font-weight: bold;
 }
 .exchange {
   margin-left: 30%;

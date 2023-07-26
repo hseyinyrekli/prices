@@ -47,15 +47,15 @@ const sparkLineData = [
 })
 export class AppComponent implements OnInit {
   isChange = true;
-
+  exchangeData!: any;
+  activeExchange = 'USD';
   activeCategories = 'all';
   api!: any;
   baseApi!: any;
-  changeActive(name: any) {
-    this.activeCategories = name;
-  }
+
   ngOnInit(): void {
     this.getApi();
+    this.getExchange();
     setInterval(() => {
       this.updatePercentValues();
       this.bindChartData();
@@ -63,6 +63,7 @@ export class AppComponent implements OnInit {
   }
 
   getApi() {
+    this.activeExchange = 'USD';
     this.activeCategories = 'all';
     this.http.get<any>('assets/json/api.json').subscribe((data) => {
       this.api = data;
@@ -70,7 +71,86 @@ export class AppComponent implements OnInit {
       this.bindChartData();
     });
   }
+  getExchange() {
+    this.http.get<any>('assets/json/exchange.json').subscribe((data) => {
+      this.exchangeData = data;
+    });
+  }
 
+  changeActive(name: any) {
+    this.activeExchange = name;
+    this.activeCategories = 'all';
+
+    if (name === 'USD') {
+      this.getApi();
+    } else {
+      let exchangeRate = 1;
+
+      for (let i = 0; i < this.api.length; i++) {
+        const data = this.api[i];
+
+        const priceName = data.price + ' USDCent';
+      }
+
+      if (name === 'CNY') {
+        exchangeRate = this.exchangeData.CNY;
+        this.changePrices([2, 5], exchangeRate);
+      } else if (name === 'INR') {
+        exchangeRate = this.exchangeData.INR;
+        this.changePrices([3], exchangeRate);
+      } else if (name === 'PKR') {
+        exchangeRate = this.exchangeData.PKR;
+        this.changePrices([7], exchangeRate);
+      }
+    }
+  }
+
+  changePrices(ids: number[], exchangeRate: number) {
+    for (let i = 0; i < this.api.length; i++) {
+      const data = this.api[i];
+      if (ids.includes(data.id)) {
+        const priceValue = parseFloat(data.price);
+        const newPriceValue = priceValue * exchangeRate;
+        data.price = newPriceValue.toFixed(2);
+      }
+    }
+  }
+  updatePercentValues() {
+    for (let i = 0; i < this.api.length; i++) {
+      const data = this.api[i];
+      const randomPercent = this.generateRandomPercent();
+      data.percent = randomPercent;
+
+      const priceValue = parseFloat(data.price);
+      const percentValue = parseFloat(randomPercent);
+
+      const newPriceValue = priceValue + (priceValue * percentValue) / 100;
+      data.price = newPriceValue.toFixed(2);
+    }
+  }
+
+  generateRandomPercent(): string {
+    const randomNum = Math.random() * 5;
+    const randomPercent = (randomNum > 3 ? '+' : '-') + randomNum.toFixed(2);
+    return randomPercent;
+  }
+
+  sortData() {
+    this.api.sort((a: any, b: any) => {
+      const priceA = parseFloat(a.price);
+      const priceB = parseFloat(b.price);
+
+      if (this.isChange) {
+        return priceB - priceA;
+      } else {
+        return priceA - priceB;
+      }
+    });
+  }
+  filter() {
+    this.isChange = !this.isChange;
+    this.sortData();
+  }
   bindChartData() {
     for (let i = 0; i < this.api.length; i++) {
       const data = this.api[i];
@@ -90,42 +170,11 @@ export class AppComponent implements OnInit {
       data.series = chartOptions;
     }
   }
-  updatePercentValues() {
-    for (let i = 0; i < this.api.length; i++) {
-      const data = this.api[i];
-      const randomPercent = this.generateRandomPercent();
-      data.percent = randomPercent;
-    }
-  }
-
-  generateRandomPercent(): string {
-    const randomNum = Math.random() * 5;
-    const randomPercent = (randomNum > 3 ? '+' : '-') + randomNum.toFixed(2);
-    return randomPercent;
-  }
-
-  sortData() {
-    this.api.sort((a: any, b: any) => {
-      const percentA = parseFloat(a.percent);
-      const percentB = parseFloat(b.percent);
-
-      if (this.isChange) {
-        return percentB - percentA;
-      } else {
-        return percentA - percentB;
-      }
-    });
-  }
-  filter() {
-    this.isChange = !this.isChange;
-    this.sortData();
-  }
-
   changeForFilter(name: any) {
     this.activeCategories = name;
+    this.activeExchange = 'USD';
     this.api = this.baseApi.filter((x: any) => x.category == name);
   }
-
   public chartLineSparkline1Options: Partial<ChartOptions>;
   public chartLineSparkline2Options: Partial<ChartOptions>;
   public chartLineSparkline3Options: Partial<ChartOptions>;
