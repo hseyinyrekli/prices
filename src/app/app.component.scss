@@ -58,8 +58,8 @@ a {
 .active2 {
   font-weight: bold;
 }
-.exchange {
-  margin-left: 30%;
+table tbody .exchange {
+  margin-left: 10% !important;
 }
 
 //MEDIA SCREEN
@@ -86,8 +86,8 @@ a {
     font-weight: lighter;
     font-size: 15px !important;
   }
-  .exchange {
-    margin-left: 0;
+  table tbody .exchange {
+    margin-left: 0 !important;
   }
 }
 @media (max-width: 512px) {
@@ -97,5 +97,26 @@ a {
     h4 {
       font-size: 0.8em !important;
     }
+  }
+
+  table thead th {
+    font-size: 13px;
+  }
+  table tbody td {
+    font-size: 11px !important;
+  }
+  table tbody .exchange {
+    width: 1px !important;
+    height: 1px !important;
+    font-size: 11px !important;
+  }
+  table tbody .percent span {
+    font-size: 10px !important;
+  }
+  table tbody #clock {
+    display: none;
+  }
+  table tbody span {
+    width: 100% !important;
   }
 }

@@ -4,7 +4,8 @@
     "category": "current",
     "name": "US Cotton 2 Futures - Dec 23 (CTZ3)",
     "price": 80.64,
-
+    "day": "Intraday",
+    "date": "13-07-2023 11:31:46",
     "percent": "",
     "series": ""
   },
@@ -13,7 +14,8 @@
     "category": "current",
     "name": "ZCE Cotton No.1 - (CCFc1)",
     "price": 104.49,
-
+    "day": "End Of Day",
+    "date": "13-07-2023 05:00:00",
     "percent": "",
     "series": ""
   },
@@ -22,6 +24,8 @@
     "category": "current",
     "name": "Cotton 29mm Futures - Aug 23 (MCOTc1)",
     "price": 182.69,
+    "day": "Intraday",
+    "date": "13-07-2023 10:53:02",
     "percent": "",
     "series": ""
   },
@@ -30,6 +34,8 @@
     "category": "index",
     "name": "Cotlook A Index",
     "price": 182.69,
+    "day": "End Of Day",
+    "date": "25-07-2023",
     "percent": "",
     "series": ""
   },
@@ -38,6 +44,8 @@
     "category": "index",
     "name": "CHINA Cotton A Index",
     "price": 104.49,
+    "day": "End Of Day",
+    "date": "26-07-2023",
     "percent": "",
     "series": ""
   },
@@ -46,6 +54,8 @@
     "category": "daily",
     "name": "CEPEA/ESALQ Cotton Price Index",
     "price": 151.03,
+    "day": "End Of Day",
+    "date": "25-07-2023",
     "percent": "",
     "series": ""
   },
@@ -54,6 +64,8 @@
     "category": "daily",
     "name": "Karachi Cotton Rates",
     "price": 91.35,
+    "day": "End Of Day",
+    "date": "25-07-2023",
     "percent": "",
     "series": ""
   }

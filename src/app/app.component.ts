@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
     setInterval(() => {
       this.updatePercentValues();
       this.bindChartData();
-    }, 3000);
+    }, 5000);
   }
 
   getApi() {
@@ -137,13 +137,13 @@ export class AppComponent implements OnInit {
 
   sortData() {
     this.api.sort((a: any, b: any) => {
-      const priceA = parseFloat(a.price);
-      const priceB = parseFloat(b.price);
+      const percentA = parseFloat(a.percent);
+      const percentB = parseFloat(b.percent);
 
       if (this.isChange) {
-        return priceB - priceA;
+        return percentB - percentA;
       } else {
-        return priceA - priceB;
+        return percentA - percentB;
       }
     });
   }
@@ -204,8 +204,8 @@ export class AppComponent implements OnInit {
   public commonLineSparklineOptions: Partial<ChartOptions> = {
     chart: {
       type: 'line',
-      width: 85,
-      height: 35,
+      width: 55,
+      height: 30,
       sparkline: {
         enabled: true,
       },
@@ -233,8 +233,8 @@ export class AppComponent implements OnInit {
   public commonBarSparklineOptions: Partial<ChartOptions> = {
     chart: {
       type: 'bar',
-      width: 90,
-      height: 35,
+      width: 55,
+      height: 30,
       sparkline: {
         enabled: true,
       },
